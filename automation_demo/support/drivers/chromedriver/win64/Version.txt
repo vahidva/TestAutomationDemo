@@ -1,0 +1,2 @@
+----------ChromeDriver v2.33 (2017-10-03)----------
+Supports Chrome v60-62

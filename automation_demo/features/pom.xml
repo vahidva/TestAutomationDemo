@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>automation</groupId>
+        <artifactId>demo</artifactId>
+        <version>1.0</version>
+    </parent>
+    <artifactId>features</artifactId>
+    <name>features</name>
+    <description>Test Files and features</description>
+
+    <!--<properties>-->
+    <!--<testToRun>**/*IT.class</testToRun>-->
+    <!--</properties>-->
+
+    <properties>
+        <forkCount>1</forkCount>
+    </properties>
+
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin}</version>
+                    <configuration>
+                        <threadCount>${forkCount}</threadCount>
+                        <perCoreThreadCount>true</perCoreThreadCount>
+                        <forkCount>${forkCount}</forkCount>
+                        <reuseForks>false</reuseForks>
+                        <argLine>-Duser.language=en</argLine>
+                        <argLine>-Xmx1024m</argLine>
+                        <argLine>-XX:MaxPermSize=256m</argLine>
+                        <argLine>-Dfile.encoding=UTF-8</argLine>
+                        <useFile>false</useFile>
+                        <includes>
+                            <include>${testToRun}</include>
+                        </includes>
+                        <testFailureIgnore>true</testFailureIgnore>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.temyers</groupId>
+                <artifactId>cucumber-jvm-parallel-plugin</artifactId>
+                <version>${cucumber.jvm.parallel.version}</version>
+                <executions>
+                    <execution>
+                        <id>generateRunners</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>generateRunners</goal>
+                        </goals>
+                        <configuration>
+                            <glue>automation.features.steps</glue>
+                            <outputDirectory>${project.build.directory}/generated-test-sources/cucumber</outputDirectory>
+                            <featuresDirectory>src/test/resources/features/</featuresDirectory>
+                            <cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir>
+                            <format>html,json,rerun</format>
+                            <strict>true</strict>
+                            <monochrome>true</monochrome>
+                            <tags>"${tags}"</tags>
+                            <useTestNG>false</useTestNG>
+                            <filterFeaturesByTags>true</filterFeaturesByTags>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>automation</groupId>
+            <artifactId>framework</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>automation</groupId>
+            <artifactId>web</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+         <id>debug</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>debug</name>
+                </property>
+            </activation>
+            <properties>
+                <forkCount>0</forkCount>
+            </properties>
+        </profile>
+    </profiles>
+
+</project>
