@@ -9,7 +9,7 @@ public class NavigationStep {
     private static final Logger LOG = LoggerFactory.getLogger(NavigationStep.class);
 
     @When("^I navigate to \"([^\"]*)\" page$")
-    public void iNavigateToPage(String pageName) {
+    public void iNavigateToPage(String pageName) throws InterruptedException {
         switch (pageName.toLowerCase()) {
             case "home":
             case "buy":

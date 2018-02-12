@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import static automation.utils.framework.Assert.assertTrue;
 
 public class SignInActions extends SignInPage {
-    private static final Logger LOG = LoggerFactory.getLogger(SignInActions.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SignInPage.class);
 
     public static void verifyLandingPage() {
         assertTrue(driver.getCurrentUrl().contains(getUrl()));

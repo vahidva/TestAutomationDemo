@@ -10,19 +10,11 @@ import java.util.List;
 public class MainMenuPageElements extends MainMenuObjects {
 
     public static WebElement mainMenuNewsElement() {
-        for(String xpath : mainMenu_News) {
-            if (driver.findElements(By.xpath(xpath)).size() > 0)
-                return driver.findElement(By.xpath(xpath));
-        }
-        throw new WebDriverException("Cannot find menu item: News" );
+        return driver.findElement(By.linkText("News"));
     }
 
     public static WebElement mainMenuMoreElement() {
-        for(String xpath : mainMenue_More) {
-            if (driver.findElements(By.xpath(xpath)).size() > 0)
-                return driver.findElement(By.xpath(xpath));
-        }
-        throw new WebDriverException("Cannot find menu item: More" );
+        return driver.findElement(By.linkText("More"));
     }
 
     public static List<WebElement> desktopNavigationList() {return driver.findElement(By.className(desktopNavigation)).findElements(By.className("desktop-nav__menu-option"));};
