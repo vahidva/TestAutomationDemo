@@ -5,10 +5,9 @@ import automation.object.PageObject;
 public class MainMenuObjects extends PageObject {
 
     public static final String[] mainMenu_News = {
-//            "//*[@id=\"homepage\"]/div/div/div[1]/header/div[2]/div/nav/ul/li[6]/a",
-//            "//*[@id=\"page-inner-wrap\"]/header/div/header/div[1]/div/nav/ul/li[6]/a",
-//            "/html/body/div[2]/header/div[1]/div[1]/nav/ul/li[6]/a",
-//            "/html/body/div[1]/header/div[1]/div[1]/nav/ul/li[6]/a",
+            "//*[@id=\"homepage\"]/div/div/div[1]/header/div[2]/div/nav/ul/li[6]/a",
+            "//*[@id=\"page-inner-wrap\"]/header/div/header/div[1]/div/nav/ul/li[6]/a",
+            "/html/body/div[2]/header/div[1]/div[1]/nav/ul/li[6]/a",
             "/html/body/div[1]/header/div[1]/div[1]/nav/ul/li[6]/a",
             "/html/body/div[1]/div/div/div[1]/header/div[2]/div/nav/ul/li[7]/a"};
 

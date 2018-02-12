@@ -31,11 +31,8 @@ public class NavigationStep {
                 AgentsActions.goToAgentsPage();
                 break;
             case "sign in":
-                LOG.info("SIGN IN SELECTED");
-
-//                SignInActions.goToSignInPage();
                 MainMenuActions.navigateToMenuItem(pageName);
-//                SignInActions.verifyLandingPage();
+                SignInActions.verifyLandingPage();
                 break;
 
             default:
@@ -49,7 +46,6 @@ public class NavigationStep {
     public void iNavigateToPageFromNewsMenu(String pageName) {
 
         MainMenuActions.mainMenuNewsClick();
-        LOG.info("Main Menu item 'News' clicked");
         switch (pageName.toLowerCase()) {
             case "news":
                 NewsActions.goToNewsPage();

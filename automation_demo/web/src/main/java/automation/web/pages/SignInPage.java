@@ -12,7 +12,6 @@ public class SignInPage extends SignInObjects {
 
     public static String getUrl() {return signInUrl;}
 
-//    public static WebElement signInElement = driver.findElement(By.className(signInMenuItem));
     public static WebElement emailElement = driver.findElement(By.name(email));
     public static WebElement passwordElement = driver.findElement(By.name(password));
     public static WebElement logInElement = driver.findElement(By.xpath(logIn));
