@@ -14,6 +14,7 @@ public class UserStep {
 
     @And("^I sign in with username \"([^\"]*)\" and passwork \"([^\"]*)\"$")
     public void iSignInWithUserNameAndPassword(String username, String password) throws InterruptedException {
+        LOG.info("Going to Sign in ");
         SignInActions.signIn(username, password);
     }
 

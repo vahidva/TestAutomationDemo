@@ -14,7 +14,17 @@ import org.slf4j.LoggerFactory;
 import static automation.utils.framework.Assert.assertTrue;
 
 public class SignInActions extends SignInPage {
-    private static final Logger LOG = LoggerFactory.getLogger(SignInActions.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SignInPage.class);
+
+    public static void goToSignInPage() throws InterruptedException {
+        LOG.info("Going to click on Sign In menu item");
+        LOG.info("____________________________________________GOTO SIGN IN");
+//        SignInPage.signInElement.click();
+//        LOG.info("Sign In Clicked");
+//
+//        Thread.sleep(5000);
+//        verifyLandingPage();
+    }
 
     public static void verifyLandingPage() {
         assertTrue(driver.getCurrentUrl().contains(getUrl()));

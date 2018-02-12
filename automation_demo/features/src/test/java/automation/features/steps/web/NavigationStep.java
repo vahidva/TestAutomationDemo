@@ -9,7 +9,7 @@ public class NavigationStep {
     private static final Logger LOG = LoggerFactory.getLogger(NavigationStep.class);
 
     @When("^I navigate to \"([^\"]*)\" page$")
-    public void iNavigateToPage(String pageName) {
+    public void iNavigateToPage(String pageName) throws InterruptedException {
         switch (pageName.toLowerCase()) {
             case "home":
             case "buy":
@@ -31,8 +31,11 @@ public class NavigationStep {
                 AgentsActions.goToAgentsPage();
                 break;
             case "sign in":
+                LOG.info("SIGN IN SELECTED");
+
+//                SignInActions.goToSignInPage();
                 MainMenuActions.navigateToMenuItem(pageName);
-                SignInActions.verifyLandingPage();
+//                SignInActions.verifyLandingPage();
                 break;
 
             default:
@@ -46,6 +49,7 @@ public class NavigationStep {
     public void iNavigateToPageFromNewsMenu(String pageName) {
 
         MainMenuActions.mainMenuNewsClick();
+        LOG.info("Main Menu item 'News' clicked");
         switch (pageName.toLowerCase()) {
             case "news":
                 NewsActions.goToNewsPage();

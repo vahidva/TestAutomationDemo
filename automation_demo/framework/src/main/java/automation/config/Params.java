@@ -56,11 +56,11 @@ public class Params {
         DRIVER_ROOT_DIR = props.getProp(
                 "driver.root.dir");
 
-        if (!DRIVER_ROOT_DIR.equals("DEFAULT_PATH")) {
+        //if (!DRIVER_ROOT_DIR.equals("DEFAULT_PATH")) {
             System.setProperty("webdriver.chrome.driver", getChromeDriverPath());
             System.setProperty("webdriver.ie.driver", getIEDriverPath());
             System.setProperty("webdriver.gecko.driver", getGeckoDriverPath());
-        }
+        //}
         CHROME_BIN_PATH = props.getProp("chrome.binary.path","");
     }
 

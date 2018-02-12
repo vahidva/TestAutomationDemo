@@ -69,15 +69,7 @@ public class WebDriverHelper extends EventFiringWebDriver {
 
     private static void startIEDriver() {
         DesiredCapabilities capabilities = getInternetExploreDesiredCapabilities();
-        if (Params.SELENIUM_HOST == null || Params.SELENIUM_HOST.isEmpty())
             REAL_DRIVER = new InternetExplorerDriver(capabilities);
-        else {
-            try {
-                REAL_DRIVER = getRemoteWebDriver(capabilities);
-            } catch (MalformedURLException e) {
-                LOG.error(Params.SELENIUM_REMOTE_URL + " Error " + e.getMessage());
-            }
-        }
         maximize();
     }
 
